@@ -1,0 +1,14 @@
+Config { font = "xft:Inconsolata:regular:size=14"
+       , bgColor = "#002b36"
+       , fgColor = "#657b83"
+       , position = TopW L 90 
+       , commands = [ Run Memory ["-t","RAM: <usedratio>%"] 20
+                    , Run Date "%I:%M%p %a %b %d" "date" 500 
+--                  , Run BatteryP ["BAT0"] ["-t","Charge: <left>%"] 600
+                    , Run Wireless "wlan0" ["-t","<essid>: <quality>%"] 150
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %memory% | <fc=#b58900>%date%</fc>   "
+       }
